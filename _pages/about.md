@@ -1,12 +1,17 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Biography"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+I am a master student advised by [Prof. Shengbo Eben Li](http://www.svm.tsinghua.edu.cn/essay/74/272.html) and [Prof. Sifa Zheng](http://www.svm.tsinghua.edu.cn/essay/74/356.html) at [Intelligent Driving Lab (iDLab)](http://www.idlab-tsinghua.com/thulab/labweb/), Tsinghua University. I received my Bachelor degree from Tsinghua University in 2019.
+
+My research interests include reinforcement learning, safe exploration, autonomous driving, and optimal control. My publications mainly focus on building state-of-the-art safety standard and solid safety guarantee for reinforcement learning with both prior model and total model-free methods. I am also experienced on applying reinforcement learning on the decision and control systems of autonomous vehicles. I did several internships at HKUST autonomous driving lab, and Tsinghua Suzhou autonomous research institute.
+
+[Curriculum Vitae](https://[your GitHub username].github.io/files/example.pdf)
 
 This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
 
