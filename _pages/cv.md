@@ -11,30 +11,17 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in engineering, Tsinghua University, 2019
+* B.S. (Second Major) in business administration, Tsinghua University, 2019
+* M.S. student in School of Vehicle and Mobility, Tsinghua University, 2019 - present
 
-Work experience
+Experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Suzhou Automotive Research Institute, Tsinghua University
+  * Research Intern: 2020.12 – 2021.1
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Unity Drive Shenzhen (HKUST Autonomous Driving Lab)
+  * Research Intern: 2019.7 – 2019.8
 
 Publications
 ======
@@ -48,12 +35,18 @@ Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Student Union of Department of Automotive Engineering (Previous SVM).
+  * Vice President: 2017.6 – 2018.5
+
+* Tsinghua University Bauhinia Energy Saving Racing Team
+  * Chassis director: 2016.3 – 2016.11
+  * Win first place of the 10th Honda Eco Mileage Challenge in Guangzhou, Nov. 2016.
+
+Skills
+======
+* Programming: Python, Matlab, Java.
+* Platforms: Linux, TensorFlow, PyTorch, OpenGL, Ray, Git, Matlab, Simulink, SUMO.
+
