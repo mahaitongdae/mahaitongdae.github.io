@@ -20,11 +20,10 @@ This paper is submitted to 2021 IEEE/RSJ International Conference on Intelligent
 <!-- Recommended citation: Your Name, You. (2010). "Paper Title Number 2." <i>Journal 1</i>. 1(2). -->
 
 Bibtex: 
-`
 @article{ma2021model,
   title={Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function},
   author={Ma, Haitong and Chen, Jianyu and Li, Shengbo Eben and Lin, Ziyu and Guan, Yang and Ren, Yangang and Zheng, Sifa},
   journal={arXiv preprint arXiv:2103.01556},
   year={2021}
 }
-`
+
