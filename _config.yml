@@ -9,8 +9,8 @@
 locale                   : "en-US"
 title                    : "Haitong Ma"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
+name                     : &name "Haitong Ma"
+description              : &description "MS student in Tsinghua"
 url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
@@ -87,7 +87,7 @@ author:
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=Hr6z0g4AAAAJ&hl=en"
-  email            :
+  email            : "maht19@mails.tsinghua.edu.cn"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/mahaitongdae"
+  github           : "mahaitongdae"
   google_plus      :
   keybase          :
   instagram        :
