@@ -2,7 +2,7 @@
 title: "Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function"
 collection: publications
 permalink: /publication/iros21
-excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
+excerpt: 'This paper is about using control barrier function in safety guarantee of autonomous driving with real vehicle experiments.'
 date: 2021-05-22
 venue: 'submitted to 2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2021).'
 paperurl: 'http://mahaitongdae.github.io/files/2103.01556.pdf'
