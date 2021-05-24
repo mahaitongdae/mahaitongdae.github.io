@@ -5,8 +5,8 @@ permalink: /publication/iros21
 excerpt: '<div align="middle"><img align="middle" style="max-width: 540px; width: 100%" src="https://mahaitongdae.github.io/files/intuitive_explanation.png" /></div><div align="middle"><img align="middle" style="max-width: 540px; width: 100%" src="https://mahaitongdae.github.io/files/record.png" /></div>'
 date: 2021-05-22
 venue: 'arXiv:2103.01556. Submitted to IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
-<!-- paperurl: 'https://arxiv.org/abs/2103.01556' -->
 ---
+<!-- paperurl: 'https://arxiv.org/abs/2103.01556' -->
 <!-- citation: '**Ma, H.**, Chen, J., Li, S.E., Lin, Z., Guan, Y., Ren, Y. and Zheng, S., 2021. Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function. arXiv preprint arXiv:2103.01556.' -->
 [[Download paper here]](http://mahaitongdae.github.io/files/2103.01556.pdf) [[GitHub repo]](https://github.com/mahaitongdae/safe_exp_env) [[Project Blog]](https://idthanm.github.io/project/interpretable/)
 
