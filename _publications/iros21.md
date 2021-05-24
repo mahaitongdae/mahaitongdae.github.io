@@ -2,9 +2,9 @@
 title: "Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function"
 collection: publications
 permalink: /publication/iros21
-excerpt: ''
+excerpt: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (**IROS**), 2021. **(Submitted)**'
 date: 2021-05-22
-venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (**IROS**), 2021. **(Submitted)**'
+venue: 'arXiv:2103.01556'
 paperurl: 'https://arxiv.org/abs/2103.01556'
 ---
 <!-- citation: '**Ma, H.**, Chen, J., Li, S.E., Lin, Z., Guan, Y., Ren, Y. and Zheng, S., 2021. Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function. arXiv preprint arXiv:2103.01556.' -->
