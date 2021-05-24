@@ -13,7 +13,7 @@ Model information can be used to predict future trajectories, so it has huge pot
 
 This paper is submitted to IEEE/RSJ International Conference on Intelligent Robots and Systems (**IROS**),  2021.
 
-[Download paper here](http://mahaitongdae.github.io/files/2103.01556.pdf) [GitHub repo](https://github.com/mahaitongdae/safe_exp_env) [Project Blog](https://idthanm.github.io/project/interpretable/)
+[[Download paper here]](http://mahaitongdae.github.io/files/2103.01556.pdf) [[GitHub repo]](https://github.com/mahaitongdae/safe_exp_env) [[Project Blog]](https://idthanm.github.io/project/interpretable/)
 
 Recommended citation:
 <pre>
