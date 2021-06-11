@@ -1,7 +1,15 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Large Scale Autonomous Vehicle Simulator (LasVSim)"
+excerpt: "Short description of portfolio item number 1<br/><img src='/files/lasvsim/lasvsim_head.png'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+The LasVSim simulator deveploped by iDLab is a autonomous driving simulator with large scale random traffic flow. LasVSim contains multiple maps (highway, intersection, roundabout, complex urben scenario), and can be used to generate training data for learning-based decision and control algorithms, or evaluating existing decision and control methods. **I am responsible for the development of the rendering interface.**
+
+<div align=center>
+<img src="files/lasvsim/figure small.gif" width = 50%/>
+</div>
+
+Related GitHub Repo:
+
+[XML map rendering: render SUMO xml map to picture](https://github.com/mahaitongdae/xml_map_render)
