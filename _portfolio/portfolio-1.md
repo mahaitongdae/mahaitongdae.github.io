@@ -7,7 +7,7 @@ collection: portfolio
 The LasVSim simulator deveploped by iDLab is a autonomous driving simulator with large scale random traffic flow. LasVSim contains multiple maps (highway, intersection, roundabout, complex urben scenario), and can be used to generate training data for learning-based decision and control algorithms, or evaluating existing decision and control methods. **I am responsible for the development of the rendering interface.**
 
 <div align=center>
-<img src="files/lasvsim/figure small.gif" width = 50%/>
+<img src='/files/lasvsim/figure small.gif' width = 50%/>
 </div>
 
 Related GitHub Repo:
