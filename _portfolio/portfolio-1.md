@@ -1,6 +1,6 @@
 ---
 title: "Large Scale Autonomous Vehicle Simulator (LasVSim)"
-excerpt: "Short description of portfolio item number 1<br/><img src='/files/lasvsim/lasvsim_head.png'>"
+excerpt: "Short description of portfolio item number 1<br/><img src='/files/lasvsim/lasvsim_head.PNG'>"
 collection: portfolio
 ---
 
