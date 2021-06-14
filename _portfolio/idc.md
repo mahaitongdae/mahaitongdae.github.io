@@ -1,8 +1,9 @@
 ---
 title: "Interpretable Driving AI with Highly Efficient Online Computation and Self-evolution Ability"
-excerpt: "<br/><img style="max-width: 800px; width: 100%" src='/files/idc/framework.png'>"
+excerpt: "<div><img style="max-width: 800px; width: 100%" src='/files/idc/framework.png'></div>"
 collection: portfolio
 ---
+
 ![fig](/files/idc/framework.png)
 
 The project aims to build an interpretable self-learning driving system by RL, for the real-time decision and control of automated vehicles. My works: 1) Formulated a general integrated decision and control framework, which utilizes RL as a way to solve constrained optimal control problems (OCP), and thus makes the output interpretable in the sense that it is the approximate solution of the OCP. The framework is promising to promote RL applications in real-world autonomous driving tasks. 2) Proposed a model-based RL algorithm for approximately solving large-scale constrained OCPs, where a generalized exterior point method is employed to find a feasible neural solution. 3) Carried out experiments both in simulation and in real world, yielding the best performance in terms of computing efficiency 10x and safety 100x compared with baseline methods.
