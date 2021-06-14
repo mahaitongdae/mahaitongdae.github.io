@@ -1,6 +1,6 @@
 ---
 title: "Interpretable Driving AI with Highly Efficient Online Computation and Self-evolution Ability"
-excerpt: "</br><img src='/files/idc/framework.png'>"
+excerpt: "<br/><img src='/files/idc/framework.png'>"
 collection: portfolio
 ---
 
