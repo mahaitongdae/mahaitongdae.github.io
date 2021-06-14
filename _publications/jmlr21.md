@@ -1,7 +1,7 @@
 ---
 title: "Feasible Actor-Critic: Constrained Reinforcement Learning for Ensuring Statewise Safety"
 collection: publications
-permalink: /publication/nips21
+permalink: /publication/jmlr21
 excerpt: ''
 date: 2021-05-22
 venue: 'arXiv: 2105.10682. Submitted to Journal of Machine Learning Research.'
