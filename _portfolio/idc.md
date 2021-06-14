@@ -12,19 +12,19 @@ Related publications:
 
 1. The total IDC frame work:
 
-[Integrated Decision and Control: Towards Interpretable and Efficient Driving Intelligence](https://idthanm.github.io/publication/integrated/)
+   paper: [Integrated Decision and Control: Towards Interpretable and Efficient Driving Intelligence](https://idthanm.github.io/publication/integrated/)
 
-[Video](https://space.bilibili.com/363124977/channel/detail?cid=177421)
+   [Video](https://space.bilibili.com/363124977/channel/detail?cid=177421)
 
 2. The solver of constrained OCP with fixed penalty method:
 
-paper: [Learn collision-free self-driving skills at urban intersections with model-based reinforcement learning](https://idthanm.github.io/publication/idc_itsc/)
+   paper: [Learn collision-free self-driving skills at urban intersections with model-based reinforcement learning](https://idthanm.github.io/publication/idc_itsc/)
 
-[Video](https://space.bilibili.com/363124977/channel/detail?cid=178813&ctype=0)
+   [Video](https://space.bilibili.com/363124977/channel/detail?cid=178813&ctype=0)
 
 3. The solver of constrianed OCP with generalized control barrier functions:
 
-[Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function](https://mahaitongdae.github.io/publication/iros21)
+   paper: [Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function](https://mahaitongdae.github.io/publication/iros21)
 
-[Repo](https://github.com/mahaitongdae/safe_exp_env)
+   [Repo](https://github.com/mahaitongdae/safe_exp_env)
  
