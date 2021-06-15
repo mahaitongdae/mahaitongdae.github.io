@@ -1,6 +1,6 @@
 ---
 title: "Hamilton-Jacobi-Bellman Equation for Finite-Horizon Continuous-Time Optimal Control Problems"
-excerpt: "<img align="middle" style="max-width: 360px; width: 100%" src="https://mahaitongdae.github.io//files/fhadp/illustration of partial time derivative derivation.png" /><img align="middle" style="max-width: 360px; width: 100%" src="https://mahaitongdae.github.io/files/fhadp/FH Framework_with NN.png" />"
+excerpt: "<img src="https://mahaitongdae.github.io/files/fhadp/title.png" />"
 collection: portfolio
 ---
 <div align="middle"><img align="middle" style="max-width: 360px; width: 100%" src="https://mahaitongdae.github.io//files/fhadp/illustration of partial time derivative derivation.png" /><img align="middle" style="max-width: 360px; width: 100%" src="https://mahaitongdae.github.io/files/fhadp/FH Framework_with NN.png" /></div>
