@@ -4,12 +4,16 @@ excerpt: ""
 collection: portfolio
 ---
 Existing constrained reinforcement learning methods mostly rely on the constrained Markov decision process (CMDP), which solves a so-called **expectation-based constriants**:
-$$\E_{\tau\sim\pi}\Big\{\sum_{t=0}^{\infty}\gamma_c^tc_t\Big\}\leq d$$
+
+$$\mathbb{E}_{\tau\sim\pi}\Big\{\sum_{t=0}^{\infty}\gamma_c^tc_t\Big\}\leq d$$
+
 The expectation constriants are actually a safety constraints defined on initial state distribution. Define the cost value function as 
+
 $$v^\pi_C(s) =  \mathbb{E}_{\tau\sim\pi}\Big\{\sum\nolimits_{t=0}^{\infty}\gamma_c^tc_t\bigg|s_0=s\Big\}$$
+
 The expectation-based constraints are:
 
-$$\E_{s\sim d^0(s)}v^C_\pi(s)\leq d$$
+$$\mathbb{E}_{s\sim d^0(s)}v^C_\pi(s)\leq d$$
 
 where $d^0(s)$ is the initial state distribution. However, there are several fatal flaws with this expectation-based safety constraint: 
 (1) Each specific state is allowed to be unsafe as long as the expectation of states satisfies the constraint; 
