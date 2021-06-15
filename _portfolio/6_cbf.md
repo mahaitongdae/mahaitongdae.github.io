@@ -1,6 +1,6 @@
 ---
 title: "Enhancing Feasibility with Generalized Control Barrier Functions"
-excerpt: "<br/><img src="/files/icps21/constraint comparison.png"/>"
+excerpt: "<br/><img src='/files/icps21/constraint comparison.png'/>"
 collection: portfolio
 ---
 The existence of solution of optimal control problems (OCP) with general inequality constriants remains unclear. 
