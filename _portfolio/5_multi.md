@@ -30,10 +30,6 @@ We actually focus on those feasible initial states, so denote $\mathcal{I}_F$ as
 
 $$v^\pi_C(s) \leq d, \forall s \in \mathcal{I}_F$$
 
-The state space is also splited into two parts, the feasble part and the infeasible part. We name the feasible part as the feasible region.
-The detailed analysis about feasible region can see a summary report in the book Reinforcement Learning and Control written by my advisor Prof. Shengbo Eben Li.
-The preview of chapter discussing the state constriants and feasibility can be .
-
-I also propose an algorithm using Lagrangian-based approach to solve the constrained RL problems with the statewise safety constriants.
+I propose an algorithm using Lagrangian-based approach to solve the constrained RL problems with the statewise safety constriants.
 In this paper, we use an **additional neural network** to approximate Lagrange multipliers, 
-and explain that the Lagrange multipliers can represent the feasibility of a specific state. See [publication pages](https://mahaitongdae.github.io/publication/jmlr21) for detailed information.
+and explain that the Lagrange multipliers can represent the feasibility of a specific state. See [publication pages](https://mahaitongdae.github.io/publication/jmlr21) for downloading paper and detailed information.
