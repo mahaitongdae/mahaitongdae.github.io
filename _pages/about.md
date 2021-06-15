@@ -18,6 +18,7 @@ My research interests include reinforcement learning, safe exploration, autonomo
 
 ## Publications
 
+* **Haitong Ma**, Yang Guan, Shegnbo Eben Li, Xiangteng Zhang, Sifa Zheng, Jianyu Chen (2021). Feasible Actor-Critic: Constrained Reinforcement Learning for Ensuring Statewise Safety. In _JMLR (under review)._
 * Yang Guan, Yangang Ren, Qi Sun, Shengbo Eben Li, **Haitong Ma**, Jingliang Duan, Yifan Dai, Bo Cheng (2021). Integrated Decision and Control: Towards Interpretable and Computationally Efficient Driving Intelligence. In _IEEE Cybernetics (under review)._
 * Yang Guan, Yangang Ren, **Haitong Ma**, Shengbo Eben Li, Qi Sun, Yifan Dai, Bo Cheng (2021). Learn collision-free self-driving skills at urban intersections with model-based reinforcement learning (2021). In _IEEE ITSC 2021 (under review)._
 * **Haitong Ma**, Jianyu Chen, Shengbo Eben Li, Ziyu Lin, Yang Guan, Yangang Ren, Sifa Zheng (2021). Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function. In _IROS 2021 (under review)._
