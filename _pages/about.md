@@ -21,7 +21,7 @@ My research interests include reinforcement learning, safe exploration, autonomo
 
 * **Haitong Ma**, Yang Guan, Shegnbo Eben Li, Xiangteng Zhang, Sifa Zheng, Jianyu Chen (2021). Feasible Actor-Critic: Constrained Reinforcement Learning for Ensuring Statewise Safety. _In JMLR (under review)._
 * Yang Guan, Yangang Ren, Qi Sun, Shengbo Eben Li, **Haitong Ma**, Jingliang Duan, Yifan Dai, Bo Cheng (2021). Integrated Decision and Control: Towards Interpretable and Computationally Efficient Driving Intelligence. _In IEEE Cybernetics (under review)._
-* Yang Guan, Yangang Ren, **Haitong Ma**, Shengbo Eben Li, Qi Sun, Yifan Dai, Bo Cheng (2021). Learn collision-free self-driving skills at urban intersections with model-based reinforcement learning (2021). In _IEEE ITSC 2021 (under review)._
+* Yang Guan, Yangang Ren, **Haitong Ma**, Shengbo Eben Li, Qi Sun, Yifan Dai, Bo Cheng (2021). Learn collision-free self-driving skills at urban intersections with model-based reinforcement learning (2021). In _IEEE ITSC 2021._
 * **Haitong Ma**, Jianyu Chen, Shengbo Eben Li, Ziyu Lin, Yang Guan, Yangang Ren, Sifa Zheng (2021). Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function. _In IROS 2021 (under review)._
 * **Haitong Ma**, Xiangteng Zhang, Shengbo Eben Li, Ziyu Lin, Yao Lyu, Sifa Zheng (2021). Feasibility Enhancement of Constrained Receding Horizon Control Using Generalized Control Barrier Function. _In IEEE ICPS 2021._
 * Ziyu Lin, Jingliang Duan, Shengbo Eben Li, Jie Li, **Haitong Ma**, Qi Sun, Jianyu Chen, Bo Cheng (2021). Solving Finite-Horizon HJB for Optimal Control of Continuous-Time Systems. _In IEEE ICCCR 2021. Bese presentation award._
