@@ -13,7 +13,7 @@ $$v^\pi_C(s) =  \mathbb{E}_{\tau\sim\pi}\Big\{\sum\nolimits_{t=0}^{\infty}\gamma
 
 The expectation-based constraints are:
 
-$$\mathbb{E}_{s\sim d^0(s)}v^C_\pi(s)\leq d$$
+$$\mathbb{E}_{s\sim d^0(s)}v_C^\pi(s)\leq d$$
 
 where $d^0(s)$ is the initial state distribution. However, there are several fatal flaws with this expectation-based safety constraint: 
 (1) Each specific state is allowed to be unsafe as long as the expectation of states satisfies the constraint; 
