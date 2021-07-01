@@ -14,8 +14,8 @@ My research interests include reinforcement learning, safe exploration, autonomo
 [CURRICULUM VITAE](https://mahaitongdae.github.io/files/cv.pdf)
 
 ## News
-* **2021.07.01** A paper is accepted by IROS 2021. Congratulation to all coauthors!
-* **2021.06.16** A participating paper is accepted by ITSC 2021. 
+* **2021.07.01** One paper is accepted by IROS 2021. Congratulations to all coauthors!
+* **2021.06.16** One participating paper is accepted by ITSC 2021. 
 * **2021.05.23** Create this academic page!
 
 ## Publications
