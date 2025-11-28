@@ -43,6 +43,7 @@ export const diffusionRL: BlogPost = {
     Therefore we have the score functions
     \\begin{equation}
     \\nabla_{\\bfx_t} \\log p_\\theta(\\bfx_t | \\bfc) = \\nabla_{\\bfx_t} \\log p( \\bfc | \\bfx_t) + \\nabla_{\\bfx_t} \\log p_\\theta(\\bfx_t) \\
+    \\label{eq:bayes_rule}
     \\end{equation}
 
     Additionally, we can add further weights $w$ to further push the generated images towards the target class,
@@ -60,14 +61,26 @@ export const diffusionRL: BlogPost = {
     </BlockQuote>
 
     <h4>Classifier-Free Guidance</h4>
+    
+    According to $\\eqref{eq:bayes_rule}$, we have the score function of classifier
+    $$
+    \\nabla_{\\bfx_t} \\log p( \\bfc | \\bfx_t) = \\nabla_{\\bfx_t} \\log p( \\bfx_t | \\bfc) - \\nabla_{\\bfx_t} \\log p_\\theta(\\bfx_t)
+    $$
+    Therefore, we can use a single network $\\epsilon_\\theta$ to model both the conditional and unconditional scores.
+    Denote the unconditional model as $\\epsilon_\\theta(\\bfx_t, t | \\emptyset)$, we have the empirical score function
+    $$
+    \\text{Empirical Score}(w) = s_\\theta(\\bfx_t, t | \\bfc) + w (s_\\theta(\\bfx_t, t | \\bfc) - s_\\theta(\\bfx_t, t | \\emptyset))
+    $$
+    
+    <h3>Preliminary: Reinforcement Learning</h3>
 
-    CFG approximates $\\eqref{eq:bayes_rule}$ by training a single neural network $\\epsilon_\\theta$ to model both the conditional and unconditional scores. 
-    
-    
-    
-    <h3>Preliminary: reinforcement learning</h3>
-
-    <p>Consider a Markov Decision Process (MDP) with state space $\\mathcal S \\RR^d$ , action space $A$ , and transition probability $p(s' | s, a)$.</p>
+    <p>Consider a Markov Decision Process (MDP) $\\langle\\mathcal S, \\mathcal A, P, r, \\rho, \\gamma\\rangle$.
+    Usually the policy optimization problem can be written as 
+    $$
+    \\max_\\pi \\mathbb E_{s, a\\sim \\pi_{\\rm old}} A(s, a) -\\lambda D(\\pi_{\\rm old} || \\pi_{\\rm new})
+    $$
+    where $\\lambda$ is a hyperparameter that controls the trade-off between the policy improvement and the KL divergence.
+    </p>
 
       `
 };
