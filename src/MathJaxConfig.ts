@@ -19,6 +19,8 @@ export const config = {
             bft: "\\mathbf{t}",
             bfz: "\\mathbf{z}",
             bfc: "\\mathbf{c}",
+            bfa: "\\mathbf{a}",
+            bfo: "\\mathbf{o}",
             bold: ["\\mathbf{#1}", 1],    // Macro with 1 argument
             braket: ["\\langle #1 | #2 \\rangle", 2] // Macro with 2 arguments
 
