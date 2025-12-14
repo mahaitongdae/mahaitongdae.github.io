@@ -1,16 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { MathJaxContext, MathJax } from 'better-react-mathjax';
-import { Search, ChevronLeft, Github, Twitter, Linkedin, Hash } from 'lucide-react';
+import { Search, ChevronLeft, Github, Twitter, Linkedin, Hash, GraduationCap } from 'lucide-react';
 import { type BlogPost } from './types';
 import { BLOG_POSTS } from './data/blogPosts';
 import { config } from './MathJaxConfig';
-
-/**
- * ==================================================================================
- * ⚙️ CONFIGURATION
- * ==================================================================================
- */
-const PERSONAL_WEBSITE_URL = "https://your-personal-website.com";
+import About from './PersonalWebsite';
+import { SITE_CONFIG } from './PersonalWebsite';
 
 /**
  * ==================================================================================
@@ -20,7 +15,7 @@ const PERSONAL_WEBSITE_URL = "https://your-personal-website.com";
 
 
 
-type ViewType = 'home' | 'post' | 'archive' | 'search' | 'tags';
+type ViewType = 'about' | 'post' | 'archive' | 'search' | 'tags';
 
 interface ViewState {
   type: ViewType;
@@ -52,9 +47,10 @@ interface DataProps extends ViewProps {
 
 
 const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Github', icon: Github, url: 'https://github.com' },
-  { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
-  { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
+  { name: 'Github', icon: Github, url: SITE_CONFIG.githubUrl },
+  // { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
+  { name: 'LinkedIn', icon: Linkedin, url: SITE_CONFIG.linkedinUrl },
+  { name: 'Scholar', icon: GraduationCap, url: SITE_CONFIG.scholarUrl },
 ];
 
 /**
@@ -63,29 +59,29 @@ const SOCIAL_LINKS: SocialLink[] = [
  * ==================================================================================
  */
 
-const Layout: React.FC<React.PropsWithChildren<ViewProps>> = ({ children, setView }) => (
+const Layout: React.FC<React.PropsWithChildren<ViewProps & { currentView: ViewType }>> = ({ children, setView, currentView }) => (
   <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-rose-200 selection:text-rose-900">
     <div className="max-w-3xl mx-auto px-6 py-12 flex flex-col min-h-screen">
 
       {/* HEADER */}
       <header className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-stone-200 pb-8">
         <div
-          onClick={() => setView({ type: 'home', postId: null, tag: null })}
+          onClick={() => setView({ type: 'about', postId: null, tag: null })}
           className="cursor-pointer group"
         >
           <h1 className="text-3xl font-serif font-bold tracking-tight text-stone-900 group-hover:text-rose-600 transition-colors">
-            Haitong's Log
+            Haitong Ma
           </h1>
-          {/* <p className="text-stone-500 mt-1 text-sm font-medium">Research, Code, & Life</p> */}
+          <p className="text-stone-500 mt-1 text-sm font-medium">PhD Student @ Harvard SEAS</p>
         </div>
 
         <nav className="flex gap-6 mt-4 md:mt-0 text-sm font-semibold tracking-wide uppercase text-stone-500">
-          <a
-            href={PERSONAL_WEBSITE_URL}
-            className="hover:text-rose-600 transition-colors pb-1 border-b-2 border-transparent hover:border-rose-600"
+          <button
+            onClick={() => setView({ type: 'about', postId: null, tag: null })}
+            className={`hover:text-rose-600 transition-colors pb-1 border-b-2 ${currentView === 'about' ? 'border-rose-600 text-rose-600' : 'border-transparent'}`}
           >
-            Main Site
-          </a>
+            About
+          </button>
           {(['Posts', 'Archive', 'Search', 'Tags'] as const).map((item) => (
             <button
               key={item}
@@ -105,7 +101,7 @@ const Layout: React.FC<React.PropsWithChildren<ViewProps>> = ({ children, setVie
 
       {/* FOOTER */}
       <footer className="mt-24 pt-8 border-t border-stone-200 flex justify-between items-center text-stone-400 text-sm">
-        <div>© {new Date().getFullYear()} Alex Doe</div>
+        <div>© {new Date().getFullYear()} Haitong Ma</div>
         <div className="flex gap-4">
           {SOCIAL_LINKS.map((link) => (
             <a
@@ -426,7 +422,7 @@ const Tags: React.FC<TagsProps> = ({ posts, setView, initialTag }) => {
  */
 export default function App() {
   // Navigation State
-  const [viewState, setViewState] = useState<ViewState>({ type: 'home', postId: null, tag: null });
+  const [viewState, setViewState] = useState<ViewState>({ type: 'about', postId: null, tag: null });
 
   // Scroll to top on view change
   useEffect(() => {
@@ -450,8 +446,8 @@ export default function App() {
 
   const renderContent = () => {
     switch (viewState.type) {
-      case 'home':
-        return <PostList posts={BLOG_POSTS} setView={setViewState} />;
+      case 'about':
+        return <About />;
       case 'post':
         const post = BLOG_POSTS.find(p => p.id === viewState.postId);
         return <PostDetail post={post} setView={setViewState} />;

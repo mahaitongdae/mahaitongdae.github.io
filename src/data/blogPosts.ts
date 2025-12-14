@@ -9,10 +9,10 @@ import { vla } from './posts/vla';
 
 export const BLOG_POSTS: BlogPost[] = [
     futureOfAi,
-    minimalistWebDesign,
-    yearReview2023,
-    reactRendering,
-    skillLearning,
-    diffusionRL,
-    vla
+    // minimalistWebDesign,
+    // yearReview2023,
+    // reactRendering,
+    // skillLearning,
+    // diffusionRL,
+    // vla
 ];

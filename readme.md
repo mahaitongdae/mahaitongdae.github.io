@@ -71,3 +71,28 @@ export default defineConfig([
   },
 ])
 ```
+
+
+A Block template:
+
+```tsx
+<div class="not-prose space-y-4 font-sans">
+  <div class="bg-white border border-stone-200 rounded-xl p-6 shadow-sm hover:border-rose-200 transition-colors">
+    <h4 class="font-bold text-stone-900 text-lg mb-2">
+    Title
+    </h4>
+    <p class="text-stone-600 leading-relaxed">
+    Content
+    </p>
+  </div>
+</div>
+```
+
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
