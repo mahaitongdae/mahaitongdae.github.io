@@ -464,7 +464,7 @@ export default function App() {
 
   return (
     <MathJaxContext config={config}>
-      <Layout setView={setViewState}>
+      <Layout setView={setViewState} currentView={viewState.type}>
         {renderContent()}
       </Layout>
     </MathJaxContext>
