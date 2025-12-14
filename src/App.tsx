@@ -185,7 +185,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
   return (
     <article className="animate-slide-up">
       <button
-        onClick={() => setView({ type: 'home', postId: null, tag: null })}
+        onClick={() => setView({ type: 'about', postId: null, tag: null })}
         className="text-stone-400 hover:text-stone-900 mb-8 flex items-center gap-1 text-sm font-medium transition-colors"
       >
         <ChevronLeft size={16} /> Back to posts
@@ -225,7 +225,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
         <p className="text-stone-500 italic text-center">
           Thanks for reading. <br />
           <span
-            onClick={() => setView({ type: 'home', postId: null, tag: null })}
+            onClick={() => setView({ type: 'about', postId: null, tag: null })}
             className="text-rose-600 cursor-pointer not-italic hover:underline font-semibold"
           >
             Read more posts
