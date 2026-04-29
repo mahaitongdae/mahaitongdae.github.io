@@ -96,3 +96,10 @@ npm install
 npm run dev
 ```
 
+## Deploy
+
+Commit all changes, push and 
+```bash
+npm run deploy
+```
+
