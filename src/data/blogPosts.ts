@@ -6,9 +6,13 @@ import { reactRendering } from './posts/react-rendering';
 import { skillLearning } from './posts/skill-learning';
 import { diffusionRL } from './posts/diffusion';
 import { vla } from './posts/vla';
+import { flowMatchingLogLikelihood } from './posts/flow-matching-log-likelihood';
+import { layerWiseAnalysisVisualFoundationModels } from './posts/layer-wise-analysis-visual-foundation-models';
 
 export const BLOG_POSTS: BlogPost[] = [
-    futureOfAi,
+    layerWiseAnalysisVisualFoundationModels,
+    // flowMatchingLogLikelihood,
+    // futureOfAi,
     // minimalistWebDesign,
     // yearReview2023,
     // reactRendering,

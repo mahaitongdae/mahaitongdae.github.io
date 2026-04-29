@@ -7,3 +7,53 @@
   --font-sans: "Inter", sans-serif;
   /* --font-serif: "Merriweather", serif; */
 }
+
+.sidenote-ref {
+  counter-increment: sidenote-counter;
+  cursor: pointer;
+}
+
+.sidenote-ref::after {
+  content: counter(sidenote-counter);
+  font-size: 0.65em;
+  vertical-align: super;
+  line-height: 0;
+  color: #e11d48;
+  font-weight: 600;
+  margin-left: 1px;
+}
+
+.sidenote {
+  float: right;
+  clear: right;
+  width: 35%;
+  margin-right: -40%;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #78716c;
+  padding-left: 1rem;
+  border-left: 2px solid #e7e5e4;
+  counter-increment: sidenote-counter;
+}
+
+.sidenote::before {
+  content: counter(sidenote-counter) ". ";
+  font-weight: 600;
+  color: #e11d48;
+}
+
+@media (max-width: 1024px) {
+  .sidenote {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 0.75rem 0;
+    margin-right: 0;
+    padding: 0.5rem 0.75rem;
+    background: #fafaf9;
+    border-left: 2px solid #e7e5e4;
+    border-radius: 0 0.25rem 0.25rem 0;
+    font-size: 0.8rem;
+  }
+}

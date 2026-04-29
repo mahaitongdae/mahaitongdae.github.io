@@ -1,6 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useCallback } from 'react';
 import { MathJaxContext, MathJax } from 'better-react-mathjax';
-import { Search, ChevronLeft, Github, Twitter, Linkedin, Hash, GraduationCap } from 'lucide-react';
+import { Routes, Route, useNavigate, useParams, useSearchParams, useLocation } from 'react-router-dom';
+import { Search, ChevronLeft, Github, Linkedin, Hash, GraduationCap } from 'lucide-react';
 import { type BlogPost } from './types';
 import { BLOG_POSTS } from './data/blogPosts';
 import { config } from './MathJaxConfig';
@@ -13,29 +14,19 @@ import { SITE_CONFIG } from './PersonalWebsite';
  * ==================================================================================
  */
 
-
-
 type ViewType = 'about' | 'post' | 'archive' | 'search' | 'tags';
-
-interface ViewState {
-  type: ViewType;
-  postId: string | null;
-  tag: string | null;
-}
 
 interface SocialLink {
   name: string;
-  // using React.ElementType avoids importing specific Types that might crash the bundler
   icon: React.ElementType;
   url: string;
 }
 
-// Props shared across multiple components
-interface ViewProps {
-  setView: React.Dispatch<React.SetStateAction<ViewState>>;
+interface NavigateProps {
+  navigate: (path: string) => void;
 }
 
-interface DataProps extends ViewProps {
+interface DataProps extends NavigateProps {
   posts: BlogPost[];
 }
 
@@ -59,14 +50,14 @@ const SOCIAL_LINKS: SocialLink[] = [
  * ==================================================================================
  */
 
-const Layout: React.FC<React.PropsWithChildren<ViewProps & { currentView: ViewType }>> = ({ children, setView, currentView }) => (
+const Layout: React.FC<React.PropsWithChildren<{ navigate: (path: string) => void; currentView: ViewType }>> = ({ children, navigate, currentView }) => (
   <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-rose-200 selection:text-rose-900">
-    <div className="max-w-3xl mx-auto px-6 py-12 flex flex-col min-h-screen">
+    <div className={`${currentView === 'post' ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-6 py-12 flex flex-col min-h-screen`}>
 
       {/* HEADER */}
       <header className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-stone-200 pb-8">
         <div
-          onClick={() => setView({ type: 'about', postId: null, tag: null })}
+          onClick={() => navigate('/')}
           className="cursor-pointer group"
         >
           <h1 className="text-3xl font-serif font-bold tracking-tight text-stone-900 group-hover:text-rose-600 transition-colors">
@@ -77,18 +68,18 @@ const Layout: React.FC<React.PropsWithChildren<ViewProps & { currentView: ViewTy
 
         <nav className="flex gap-6 mt-4 md:mt-0 text-sm font-semibold tracking-wide uppercase text-stone-500">
           <button
-            onClick={() => setView({ type: 'about', postId: null, tag: null })}
+            onClick={() => navigate('/')}
             className={`hover:text-rose-600 transition-colors pb-1 border-b-2 ${currentView === 'about' ? 'border-rose-600 text-rose-600' : 'border-transparent'}`}
           >
             About
           </button>
-          {(['Posts', 'Archive', 'Search', 'Tags'] as const).map((item) => (
+          {([['Posts', '/posts'], ['Archive', '/archive'], ['Search', '/search'], ['Tags', '/tags']] as const).map(([label, path]) => (
             <button
-              key={item}
-              onClick={() => setView({ type: item.toLowerCase() as ViewType, postId: null, tag: null })}
+              key={label}
+              onClick={() => navigate(path)}
               className="hover:text-rose-600 transition-colors pb-1 border-b-2 border-transparent hover:border-rose-600"
             >
-              {item}
+              {label}
             </button>
           ))}
         </nav>
@@ -120,13 +111,13 @@ const Layout: React.FC<React.PropsWithChildren<ViewProps & { currentView: ViewTy
   </div>
 );
 
-const PostList: React.FC<DataProps> = ({ posts, setView }) => (
+const PostList: React.FC<DataProps> = ({ posts, navigate }) => (
   <div className="space-y-12">
     {posts.map(post => (
       <article key={post.id} className="group">
         <div className="flex items-baseline justify-between mb-2">
           <h2
-            onClick={() => setView({ type: 'post', postId: post.id, tag: null })}
+            onClick={() => navigate(`/post/${post.id}`)}
             className="text-2xl font-serif font-bold text-stone-900 cursor-pointer group-hover:text-rose-600 transition-colors"
           >
             {post.title}
@@ -140,7 +131,7 @@ const PostList: React.FC<DataProps> = ({ posts, setView }) => (
         </p>
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setView({ type: 'post', postId: post.id, tag: null })}
+            onClick={() => navigate(`/post/${post.id}`)}
             className="text-rose-600 text-sm font-bold hover:underline"
           >
             Read more
@@ -151,7 +142,7 @@ const PostList: React.FC<DataProps> = ({ posts, setView }) => (
                 key={tag}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setView({ type: 'tags', tag, postId: null });
+                  navigate(`/tags?tag=${encodeURIComponent(tag)}`);
                 }}
                 className="text-xs bg-stone-100 text-stone-500 px-2 py-1 rounded cursor-pointer hover:bg-stone-200"
               >
@@ -165,27 +156,16 @@ const PostList: React.FC<DataProps> = ({ posts, setView }) => (
   </div>
 );
 
-interface PostDetailProps extends ViewProps {
-  post?: BlogPost;
-}
-
-const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
-  // // Effect to re-run MathJax when the post changes
-  // useEffect(() => {
-  //   if ((window as any).MathJax) {
-  //     // Small timeout ensures DOM is ready
-  //     setTimeout(() => {
-  //       (window as any).MathJax.typesetPromise?.();
-  //     }, 0);
-  //   }
-  // }, [post]);
+const PostDetailPage: React.FC<{ navigate: (path: string) => void }> = ({ navigate }) => {
+  const { postId } = useParams();
+  const post = BLOG_POSTS.find(p => p.id === postId);
 
   if (!post) return <div>Post not found</div>;
 
   return (
     <article className="animate-slide-up">
       <button
-        onClick={() => setView({ type: 'about', postId: null, tag: null })}
+        onClick={() => navigate('/')}
         className="text-stone-400 hover:text-stone-900 mb-8 flex items-center gap-1 text-sm font-medium transition-colors"
       >
         <ChevronLeft size={16} /> Back to posts
@@ -200,7 +180,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
           {post.tags.map(tag => (
             <span
               key={tag}
-              onClick={() => setView({ type: 'tags', tag, postId: null })}
+              onClick={() => navigate(`/tags?tag=${encodeURIComponent(tag)}`)}
               className="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-full cursor-pointer hover:bg-rose-100"
             >
               {tag}
@@ -209,10 +189,10 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
         </div>
       </header>
 
-      {/* This div renders the HTML content safely. */}
       <MathJax>
         <div
-          className="prose prose-stone prose-lg mx-auto text-stone-700 leading-8 font-sans
+          style={{ counterReset: 'sidenote-counter' }}
+          className="prose prose-stone prose-lg max-w-none text-stone-700 leading-8 font-sans
                     prose-headings:font-serif prose-headings:font-bold prose-headings:text-stone-900
                     prose-a:text-rose-600 prose-a:no-underline hover:prose-a:underline
                     prose-blockquote:border-l-rose-500 prose-blockquote:bg-stone-100 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:italic
@@ -225,7 +205,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
         <p className="text-stone-500 italic text-center">
           Thanks for reading. <br />
           <span
-            onClick={() => setView({ type: 'about', postId: null, tag: null })}
+            onClick={() => navigate('/')}
             className="text-rose-600 cursor-pointer not-italic hover:underline font-semibold"
           >
             Read more posts
@@ -236,8 +216,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post, setView }) => {
   );
 };
 
-const Archive: React.FC<DataProps> = ({ posts, setView }) => {
-  // Group posts by year
+const Archive: React.FC<DataProps> = ({ posts, navigate }) => {
   const postsByYear = useMemo(() => {
     const groups: Record<string, BlogPost[]> = {};
     posts.forEach(post => {
@@ -245,7 +224,6 @@ const Archive: React.FC<DataProps> = ({ posts, setView }) => {
       if (!groups[year]) groups[year] = [];
       groups[year].push(post);
     });
-    // Sort years descending
     return Object.keys(groups).sort((a, b) => Number(b) - Number(a)).map(year => ({
       year,
       posts: groups[year]
@@ -265,13 +243,13 @@ const Archive: React.FC<DataProps> = ({ posts, setView }) => {
               {group.posts.map(post => (
                 <li key={post.id} className="flex flex-col sm:flex-row sm:items-baseline justify-between group">
                   <span
-                    onClick={() => setView({ type: 'post', postId: post.id, tag: null })}
+                    onClick={() => navigate(`/post/${post.id}`)}
                     className="text-lg text-stone-800 cursor-pointer hover:text-rose-600 hover:underline transition-colors"
                   >
                     {post.title}
                   </span>
                   <span className="text-stone-400 text-sm font-mono shrink-0 sm:ml-4">
-                    {post.date.substring(5)} {/* Shows MM-DD */}
+                    {post.date.substring(5)}
                   </span>
                 </li>
               ))}
@@ -283,8 +261,13 @@ const Archive: React.FC<DataProps> = ({ posts, setView }) => {
   );
 };
 
-const SearchPage: React.FC<DataProps> = ({ posts, setView }) => {
-  const [query, setQuery] = useState('');
+const SearchPage: React.FC<DataProps> = ({ posts, navigate }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('q') || '';
+
+  const setQuery = useCallback((q: string) => {
+    setSearchParams(q ? { q } : {}, { replace: true });
+  }, [setSearchParams]);
 
   const filteredPosts = useMemo(() => {
     if (!query) return [];
@@ -318,7 +301,7 @@ const SearchPage: React.FC<DataProps> = ({ posts, setView }) => {
             filteredPosts.map(post => (
               <div key={post.id} className="pb-6 border-b border-stone-100 last:border-0">
                 <h3
-                  onClick={() => setView({ type: 'post', postId: post.id, tag: null })}
+                  onClick={() => navigate(`/post/${post.id}`)}
                   className="text-xl font-bold text-stone-800 cursor-pointer hover:text-rose-600 mb-2"
                 >
                   {post.title}
@@ -338,14 +321,14 @@ const SearchPage: React.FC<DataProps> = ({ posts, setView }) => {
   );
 };
 
-interface TagsProps extends DataProps {
-  initialTag: string | null;
-}
+const Tags: React.FC<DataProps> = ({ posts, navigate }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTag = searchParams.get('tag') || null;
 
-const Tags: React.FC<TagsProps> = ({ posts, setView, initialTag }) => {
-  const [activeTag, setActiveTag] = useState<string | null>(initialTag || null);
+  const setActiveTag = useCallback((tag: string | null) => {
+    setSearchParams(tag ? { tag } : {}, { replace: true });
+  }, [setSearchParams]);
 
-  // Extract all unique tags
   const allTags = useMemo(() => {
     const tags = new Set<string>();
     posts.forEach(post => post.tags.forEach(t => tags.add(t)));
@@ -363,7 +346,6 @@ const Tags: React.FC<TagsProps> = ({ posts, setView, initialTag }) => {
         <Hash className="text-rose-600" /> Tags
       </h2>
 
-      {/* Cloud */}
       <div className="flex flex-wrap gap-3 mb-12">
         <button
           onClick={() => setActiveTag(null)}
@@ -390,13 +372,12 @@ const Tags: React.FC<TagsProps> = ({ posts, setView, initialTag }) => {
         ))}
       </div>
 
-      {/* List */}
       <div className="space-y-8 animate-fade-in">
         <h3 className="text-sm font-bold uppercase tracking-widest text-stone-400 mb-6">
           {activeTag ? `Posts tagged "${activeTag}"` : 'All Posts'}
         </h3>
         {filteredPosts.map(post => (
-          <article key={post.id} className="flex flex-col sm:flex-row gap-2 sm:gap-8 group cursor-pointer" onClick={() => setView({ type: 'post', postId: post.id, tag: null })}>
+          <article key={post.id} className="flex flex-col sm:flex-row gap-2 sm:gap-8 group cursor-pointer" onClick={() => navigate(`/post/${post.id}`)}>
             <span className="text-stone-400 font-mono text-sm whitespace-nowrap pt-1">{post.date}</span>
             <div>
               <h4 className="text-lg font-bold text-stone-800 group-hover:text-rose-600 transition-colors">
@@ -420,52 +401,45 @@ const Tags: React.FC<TagsProps> = ({ posts, setView, initialTag }) => {
  * 🚀 MAIN APP COMPONENT
  * ==================================================================================
  */
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function currentViewFromPath(pathname: string): ViewType {
+  if (pathname.startsWith('/post/')) return 'post';
+  if (pathname === '/posts') return 'about';
+  if (pathname === '/archive') return 'archive';
+  if (pathname === '/search') return 'search';
+  if (pathname === '/tags') return 'tags';
+  return 'about';
+}
+
 export default function App() {
-  // Navigation State
-  const [viewState, setViewState] = useState<ViewState>({ type: 'about', postId: null, tag: null });
+  const nav = useNavigate();
+  const location = useLocation();
+  const navigate = useCallback((path: string) => nav(path), [nav]);
+  const currentView = currentViewFromPath(location.pathname);
 
-  // Scroll to top on view change
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [viewState]);
-
-  // useEffect(() => {
-  //   if (!document.querySelector('#mathjax-script')) {
-  //     const script = document.createElement('script');
-  //     script.id = 'mathjax-script';
-  //     script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-  //     script.async = true;
-  //     document.head.appendChild(script);
-  //   }
-  // }, []);
-
-  // Debug: verify app is running
   useEffect(() => {
     console.log("App Mounted successfully");
   }, []);
 
-  const renderContent = () => {
-    switch (viewState.type) {
-      case 'about':
-        return <About />;
-      case 'post':
-        const post = BLOG_POSTS.find(p => p.id === viewState.postId);
-        return <PostDetail post={post} setView={setViewState} />;
-      case 'archive':
-        return <Archive posts={BLOG_POSTS} setView={setViewState} />;
-      case 'search':
-        return <SearchPage posts={BLOG_POSTS} setView={setViewState} />;
-      case 'tags':
-        return <Tags posts={BLOG_POSTS} setView={setViewState} initialTag={viewState.tag} />;
-      default:
-        return <PostList posts={BLOG_POSTS} setView={setViewState} />;
-    }
-  };
-
   return (
     <MathJaxContext config={config}>
-      <Layout setView={setViewState} currentView={viewState.type}>
-        {renderContent()}
+      <ScrollToTop />
+      <Layout navigate={navigate} currentView={currentView}>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/posts" element={<PostList posts={BLOG_POSTS} navigate={navigate} />} />
+          <Route path="/post/:postId" element={<PostDetailPage navigate={navigate} />} />
+          <Route path="/archive" element={<Archive posts={BLOG_POSTS} navigate={navigate} />} />
+          <Route path="/search" element={<SearchPage posts={BLOG_POSTS} navigate={navigate} />} />
+          <Route path="/tags" element={<Tags posts={BLOG_POSTS} navigate={navigate} />} />
+          <Route path="*" element={<About />} />
+        </Routes>
       </Layout>
     </MathJaxContext>
   );

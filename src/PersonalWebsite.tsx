@@ -9,6 +9,7 @@ import discreteDiffusionImg from './assets/discrete_diffusion.png'
 import rsmImg from './assets/rsm_demo.png'
 import jointImg from './assets/joint.png'
 import recordImg from './assets/record.png'
+import simpoImg from './assets/simpo-1.png'
 
 /**
  * ==================================================================================
@@ -42,9 +43,12 @@ interface PublicationCategory {
 }
 
 const NEWS_ITEMS = [
+    { date: "04/2026", content: "I started a blog! My first post surveys five recent papers on <a href='#/post/layer-wise-analysis-visual-foundation-models' class='text-rose-600 font-bold hover:underline'>layer-wise analysis of visual foundation models</a> (CLIP, DINO, DINOv2) — check out the <span class='text-rose-600 font-bold'>Posts</span> section!" },
+    { date: "03/2026", content: "Our new preprint <a href='https://arxiv.org/abs/2603.10250' class='text-rose-600 font-bold hover:underline'>SiMPO: Measure Matching for Online Diffusion Reinforcement Learning</a> was published on arxiv!" },
     { date: "10/2025", content: "My internship project at Google Research, <a href='https://arxiv.org/pdf/2509.22963' class='text-rose-600 font-bold hover:underline'>Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces</a>, was published on arxiv!" },
-    { date: "10/2025", content: "Our new preprints <a href='https://arxiv.org/pdf/2507.23675' class='text-rose-600 font-bold hover:underline'>One-step Flow Policy Mirror Descent</a> was published on arxiv!" },
+    // { date: "10/2025", content: "Our new preprints <a href='https://arxiv.org/pdf/2507.23675' class='text-rose-600 font-bold hover:underline'>One-step Flow Policy Mirror Descent</a> was published on arxiv!" },
     { date: "06/2025", content: "Our paper on <a href='https://arxiv.org/pdf/2502.00361' class='text-rose-600 font-bold hover:underline'>Efficient Online Reinforcement Learning for Diffusion Policy</a> has been accepted to ICML 2025. Congratulations to all coauthors!" },
+    { date: "06/2025", content: "Our paper on <a href='https://arxiv.org/abs/2205.07536' class='text-rose-600 font-bold hover:underline'>Offline Imitation Learning upon Arbitrary Demonstrations by Pre-Training Dynamics Representations</a> has been accepted to IROS 2025. Congratulations to all coauthors!" },
     { date: "06/2024", content: "New paper on sim-to-real transfer learning was accepted at IROS 2024 as an oral presentation! Check out the <a href='https://congharvard.github.io/steady-sim-to-real/'>project website</a> for details!" },
     { date: "06/2022", content: "One paper was nominated the <a href='https://arxiv.org/pdf/2111.07695' class='text-rose-600 font-bold hover:underline'>Best Paper Award Finalists</a> at L4DC 2022. Congratulations to all coauthors!" }
 ];
@@ -53,6 +57,14 @@ const PUBLICATIONS: PublicationCategory[] = [
     {
         category: "Preprints",
         items: [
+            {
+                title: "SiMPO: Measure Matching for Online Diffusion Reinforcement Learning",
+                authors: <span><strong>Haitong Ma*</strong>, Chenxiao Gao*, Tianyi Chen, Na Li, Bo Dai</span>,
+                venue: "In submission",
+                links: [{ name: "ArXiv", url: "https://arxiv.org/abs/2603.10250" }],
+                image: simpoImg,
+                description: "We introduce a unified framework that generalizes reweighting schemes in diffusion RL, enabling principled negative reweighting that actively repels policies from suboptimal actions."
+            },
             {
                 title: "Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces",
                 authors: "",
@@ -76,22 +88,22 @@ const PUBLICATIONS: PublicationCategory[] = [
                 image: speedCombined,
                 description: "We introduce a reinforcement learning (RL) framework to train a single diffusion policy for multiple contact-rich block-pushing tasks, achieveing robust sim-to-real transfer without reliance on expert data."
             },
-            {
-                title: "Offline Imitation Learning upon Arbitrary Demonstrations by Pre-Training Dynamics Representations",
-                authors: <span><strong>Haitong Ma</strong>, Bo Dai, Zhaolin Ren, Yebin Wang, Na Li</span>,
-                venue: "In submission",
-                links: [
-                    { name: "Online Report", url: "https://arxiv.org/abs/2205.07536" },
-                    { name: "Project Website", url: "https://congharvard.github.io/repr-imitation-learning/" }
-                ],
-                image: reprIlGif,
-                description: "We pre-train dynamics representations to improve the imitation learning performance when expert data is very limited."
-            }
         ]
     },
     {
         category: "Conference Papers",
         items: [
+            {
+                title: "Offline Imitation Learning upon Arbitrary Demonstrations by Pre-Training Dynamics Representations",
+                authors: <span><strong>Haitong Ma</strong>, Bo Dai, Zhaolin Ren, Yebin Wang, Na Li</span>,
+                venue: "IROS 2025",
+                links: [
+                    { name: "ArXiv", url: "https://arxiv.org/abs/2205.07536" },
+                    { name: "Project Website", url: "https://congharvard.github.io/repr-imitation-learning/" }
+                ],
+                image: reprIlGif,
+                description: "We pre-train dynamics representations to improve the imitation learning performance when expert data is very limited."
+            },
             {
                 title: "Efficient Online Reinforcement Learning for Diffusion Policy",
                 authors: <span><strong>Haitong Ma</strong>, Tianyi Chen, Kai Wang, Na Li*, Bo Dai*</span>,
@@ -199,7 +211,6 @@ const About: React.FC = () => {
                     <h2 className="text-2xl font-serif font-bold text-stone-900">Hello, I'm {SITE_CONFIG.name}.</h2>
                     <p>
                         I am a fourth-year PhD student at Harvard SEAS advised by <a href="https://nali.seas.harvard.edu/" className="text-rose-600 hover:underline">Prof. Na Li</a>.
-                        I am also a student researcher at <a href="https://research.google/" className="text-rose-600 hover:underline">Google Research</a>.
                     </p>
                     <p>
                         My research interest lies in the intersection of <strong>control theory</strong> and <strong>machine learning</strong>, with applications to robotics and generative AI.
@@ -245,7 +256,7 @@ const About: React.FC = () => {
             <section>
                 <h3 className="text-xl font-serif font-bold text-stone-900 border-b border-stone-200 pb-2 mb-6">News</h3>
                 <div className="space-y-4">
-                    {NEWS_ITEMS.map((news, idx) => (
+                    {NEWS_ITEMS.slice(0, 3).map((news, idx) => (
                         <div key={idx} className="flex gap-4 text-stone-700">
                             <span className="font-mono text-sm text-stone-400 shrink-0 w-20 pt-0.5">{news.date}</span>
                             <div className="text-base" dangerouslySetInnerHTML={{ __html: news.content }} />
