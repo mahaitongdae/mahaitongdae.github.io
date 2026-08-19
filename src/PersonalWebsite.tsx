@@ -43,9 +43,11 @@ interface PublicationCategory {
 }
 
 const NEWS_ITEMS = [
+    { date: "06/2026", content: "I started to work as a student researcher at Google DeepMind!" },
+    { date: "05/2026", content: "Our paper <a href='https://arxiv.org/abs/2509.22963' class='text-rose-600 font-bold hover:underline'>Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces</a> has been accepted to ICML 2026. Congratulations to all coauthors!" },
     { date: "04/2026", content: "I started a blog! My first post surveys five recent papers on <a href='#/post/layer-wise-analysis-visual-foundation-models' class='text-rose-600 font-bold hover:underline'>layer-wise analysis of visual foundation models</a> (CLIP, DINO, DINOv2) — check out the <span class='text-rose-600 font-bold'>Posts</span> section!" },
     { date: "03/2026", content: "Our new preprint <a href='https://arxiv.org/abs/2603.10250' class='text-rose-600 font-bold hover:underline'>SiMPO: Measure Matching for Online Diffusion Reinforcement Learning</a> was published on arxiv!" },
-    { date: "10/2025", content: "My internship project at Google Research, <a href='https://arxiv.org/pdf/2509.22963' class='text-rose-600 font-bold hover:underline'>Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces</a>, was published on arxiv!" },
+    { date: "10/2025", content: "My internship project at Google Research, <a href='https://arxiv.org/abs/2509.22963' class='text-rose-600 font-bold hover:underline'>Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces</a>, appeared on arXiv (now accepted to ICML 2026)." },
     // { date: "10/2025", content: "Our new preprints <a href='https://arxiv.org/pdf/2507.23675' class='text-rose-600 font-bold hover:underline'>One-step Flow Policy Mirror Descent</a> was published on arxiv!" },
     { date: "06/2025", content: "Our paper on <a href='https://arxiv.org/pdf/2502.00361' class='text-rose-600 font-bold hover:underline'>Efficient Online Reinforcement Learning for Diffusion Policy</a> has been accepted to ICML 2025. Congratulations to all coauthors!" },
     { date: "06/2025", content: "Our paper on <a href='https://arxiv.org/abs/2205.07536' class='text-rose-600 font-bold hover:underline'>Offline Imitation Learning upon Arbitrary Demonstrations by Pre-Training Dynamics Representations</a> has been accepted to IROS 2025. Congratulations to all coauthors!" },
@@ -58,20 +60,12 @@ const PUBLICATIONS: PublicationCategory[] = [
         category: "Preprints",
         items: [
             {
-                title: "SiMPO: Measure Matching for Online Diffusion Reinforcement Learning",
+                title: "GeMPO: Measure Matching for Online Diffusion Reinforcement Learning",
                 authors: <span><strong>Haitong Ma*</strong>, Chenxiao Gao*, Tianyi Chen, Na Li, Bo Dai</span>,
                 venue: "In submission",
                 links: [{ name: "ArXiv", url: "https://arxiv.org/abs/2603.10250" }],
                 image: simpoImg,
                 description: "We introduce a unified framework that generalizes reweighting schemes in diffusion RL, enabling principled negative reweighting that actively repels policies from suboptimal actions."
-            },
-            {
-                title: "Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces",
-                authors: "",
-                venue: "In submission",
-                links: [{ name: "ArXiv", url: "https://arxiv.org/abs/2509.22963" }],
-                image: discreteDiffusionImg,
-                description: "We analyze reinforcement learning (RL) algorithms with discrete diffusion policies for combinatorial action spaces, with applications to DNA generations and long-horizon decision making in Atari games."
             },
             {
                 title: "One-Step Flow Policy Mirror Descent",
@@ -93,6 +87,14 @@ const PUBLICATIONS: PublicationCategory[] = [
     {
         category: "Conference Papers",
         items: [
+            {
+                title: "Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces",
+                authors: <span><strong>Haitong Ma*</strong>, Ofir Nabati*, Aviv Rosenberg, Bo Dai, Oran Lang, Idan Szpektor, Craig Boutilier, Na Li, Shie Mannor, Lior Shani, Guy Tenneholtz</span>,
+                venue: "ICML 2026",
+                links: [{ name: "ArXiv", url: "https://arxiv.org/abs/2509.22963" }],
+                image: discreteDiffusionImg,
+                description: "We analyze different reinforcement learning (RL) algorithms for discrete diffusion policies in combinatorial action spaces, with applications to DNA generations and long-horizon decision making in Atari games."
+            },
             {
                 title: "Offline Imitation Learning upon Arbitrary Demonstrations by Pre-Training Dynamics Representations",
                 authors: <span><strong>Haitong Ma</strong>, Bo Dai, Zhaolin Ren, Yebin Wang, Na Li</span>,
@@ -160,17 +162,6 @@ const PUBLICATIONS: PublicationCategory[] = [
                 image: recordImg,
                 description: "We train end-to-end contorl policy with safety contraint using CBF and implement it on a real autonomous vehicle."
             },
-            {
-                title: "Model-based Constrained Reinforcement Learning using Generalized Control Barrier Function",
-                authors: <span><strong>Haitong Ma</strong>, Jianyu Chen, Shengbo Eben Li, Ziyu Lin, Yang Guan, Yangang Ren, Sifa Zheng.</span>,
-                venue: <span>IROS 2021 <span className="text-rose-600 font-bold"></span></span>,
-                links: [
-                    { name: "ArXiv", url: "https://arxiv.org/pdf/2103.01556" },
-                    { name: "Video", url: "https://www.bilibili.com/video/BV1mi4y1T7qC/?spm_id_from=333.1387.homepage.video_card.click&vd_source=b5055853da3e3de8d575367e8ed39fec" }
-                ],
-                image: recordImg,
-                description: "We train end-to-end contorl policy with safety contraint using CBF and implement it on a real autonomous vehicle."
-            },
 
         ]
     },
@@ -211,14 +202,15 @@ const About: React.FC = () => {
                     <h2 className="text-2xl font-serif font-bold text-stone-900">Hello, I'm {SITE_CONFIG.name}.</h2>
                     <p>
                         I am a fourth-year PhD student at Harvard SEAS advised by <a href="https://nali.seas.harvard.edu/" className="text-rose-600 hover:underline">Prof. Na Li</a>.
+                        I am also a student researcher at <a href="https://deepmind.google/" className="text-rose-600 hover:underline">Google DeepMind</a>.
                     </p>
                     <p>
                         My research interest lies in the intersection of <strong>control theory</strong> and <strong>machine learning</strong>, with applications to robotics and generative AI.
                         Currently, I am working on
                     </p>
                     <ul className="list-disc list-inside">
+                        <li>Efficient approaches of post-training generative models using reinforcement learning (RL). </li>
                         <li>Learning generalizable and transferable representations for sequential decision making problems.</li>
-                        <li>Efficient approaches to train generative models using reinformceement learning (RL). </li>
                     </ul>
                     <p>
                         I received my Master degree and Bachelor degree, both from Tsinghua University, in 2022 and 2019.
