@@ -10,6 +10,7 @@ import rsmImg from './assets/rsm_demo.png'
 import jointImg from './assets/joint.png'
 import recordImg from './assets/record.png'
 import simpoImg from './assets/simpo-1.png'
+import rleBenchImg from './assets/rle-bench.png'
 
 /**
  * ==================================================================================
@@ -43,6 +44,7 @@ interface PublicationCategory {
 }
 
 const NEWS_ITEMS = [
+    { date: "09/2026", content: "Introducing <a href='https://rle-bench.github.io/' class='text-rose-600 font-bold hover:underline'>RLE-Bench</a>, our benchmark evaluating coding agents as robot learning engineers across nine tasks in control, policy development, perception and estimation, and mechanical design!" },
     { date: "06/2026", content: "I started to work as a student researcher at Google DeepMind!" },
     { date: "05/2026", content: "Our paper <a href='https://arxiv.org/abs/2509.22963' class='text-rose-600 font-bold hover:underline'>Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces</a> has been accepted to ICML 2026. Congratulations to all coauthors!" },
     { date: "04/2026", content: "I started a blog! My first post surveys five recent papers on <a href='#/post/layer-wise-analysis-visual-foundation-models' class='text-rose-600 font-bold hover:underline'>layer-wise analysis of visual foundation models</a> (CLIP, DINO, DINOv2) — check out the <span class='text-rose-600 font-bold'>Posts</span> section!" },
@@ -56,6 +58,23 @@ const NEWS_ITEMS = [
 ];
 
 const PUBLICATIONS: PublicationCategory[] = [
+    {
+        category: "Research Projects",
+        items: [
+            {
+                title: "RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
+                authors: <span>Core contributors: <strong>Haitong Ma</strong>, Chenxiao Gao, Rushi Qiang. Advisors: Na Li, Bo Dai.</span>,
+                venue: "Research benchmark, 2026",
+                links: [
+                    { name: "Project Website", url: "https://rle-bench.github.io/" },
+                    { name: "Research Overview", url: "https://rle-bench.github.io/blog/" },
+                    { name: "Code", url: "https://github.com/RLE-Bench/RLE-Bench" }
+                ],
+                image: rleBenchImg,
+                description: "We evaluate whether coding agents can solve robot learning engineering problems through observation, experimentation, and iterative development. RLE-Bench spans nine tasks across interactive control, policy development, perception and estimation, and mechanical design, with independent evaluation under hidden physical conditions."
+            },
+        ]
+    },
     {
         category: "Preprints",
         items: [

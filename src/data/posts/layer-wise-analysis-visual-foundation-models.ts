@@ -259,15 +259,11 @@ export const layerWiseAnalysisVisualFoundationModels: BlogPost = {
     </thead>
     <tbody>
     <tr><td>ImageNet Top-1 (DINOv2)</td><td>84.3</td><td>84.8</td></tr>
-    <tr><td>ADE20k<span class="sidenote-ref"></span> mIoU (DINOv2)</td><td>46.6</td><td>47.9</td></tr>
-    <tr><td>NYUd RMSE<span class="sidenote-ref"></span> ↓ (DINOv2)</td><td>0.378</td><td>0.366</td></tr>
-    <tr><td>VOC LOST corloc<span class="sidenote-ref"></span> (DINOv2)</td><td>35.3</td><td><strong>55.4</strong></td></tr>
+    <tr><td>ADE20k<span class="sidenote-ref"></span><span class="sidenote">ADE20k is a scene parsing benchmark with 150 semantic categories.</span> mIoU (DINOv2)</td><td>46.6</td><td>47.9</td></tr>
+    <tr><td>NYUd RMSE<span class="sidenote-ref"></span><span class="sidenote">RMSE (Root Mean Squared Error) measures depth estimation accuracy. Lower is better.</span> ↓ (DINOv2)</td><td>0.378</td><td>0.366</td></tr>
+    <tr><td>VOC LOST corloc<span class="sidenote-ref"></span><span class="sidenote">corloc (Correct Localization) = percentage of images where predicted bounding box has ≥50% IoU with ground truth.</span> (DINOv2)</td><td>35.3</td><td><strong>55.4</strong></td></tr>
     </tbody>
     </table>
-
-    <span class="sidenote">ADE20k is a scene parsing benchmark with 150 semantic categories.</span>
-    <span class="sidenote">RMSE (Root Mean Squared Error) measures depth estimation accuracy. Lower is better.</span>
-    <span class="sidenote">corloc (Correct Localization) = percentage of images where predicted bounding box has ≥50% IoU with ground truth.</span>
 
     <p>
     No regression on standard benchmarks; +20.1 corloc on object discovery. Outlier tokens carry global information:

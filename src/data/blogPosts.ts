@@ -8,8 +8,10 @@ import { diffusionRL } from './posts/diffusion';
 import { vla } from './posts/vla';
 import { flowMatchingLogLikelihood } from './posts/flow-matching-log-likelihood';
 import { layerWiseAnalysisVisualFoundationModels } from './posts/layer-wise-analysis-visual-foundation-models';
+import { ramVsAwr } from './posts/ram-vs-awr';
 
 export const BLOG_POSTS: BlogPost[] = [
+    ramVsAwr,
     layerWiseAnalysisVisualFoundationModels,
     // flowMatchingLogLikelihood,
     // futureOfAi,

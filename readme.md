@@ -98,8 +98,7 @@ npm run dev
 
 ## Deploy
 
-Commit all changes, push and 
+Commit all changes, push and
 ```bash
 npm run deploy
 ```
-
